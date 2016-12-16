@@ -34,6 +34,7 @@ function connect() {
 		if (msg.type == "match")
 			setVar(msg);
 		else {
+			//感觉这里设计得不好，整个项目的模块化功能不清晰，不利于后续的扩展
 			drawChess(msg.x, msg.y, msg.myId);
 			who = true;
 		}

@@ -82,6 +82,7 @@ var ws = connect();
 					var msg = {"myId":me,"opponentId":opponent,"type":"step","x":i,"y":j};
 					var json = JSON.stringify(msg);
 					console.log('msg'+msg);
+					//console.log(JSON.stringify(chessboard));
 					/* {"myId":0,"opponentId":0,"type":"step","x":3,"y":2} */
 					ws.send(json);
 					// chessboard [i][j] =me;//在数据中做记录

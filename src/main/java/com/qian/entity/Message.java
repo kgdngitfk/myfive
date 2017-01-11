@@ -1,5 +1,9 @@
 package com.qian.entity;
-
+/**
+ * 
+ * @author wuhuaiqian
+ * @date 2017年1月12日
+ */
 public class Message {
 	private String type;
 	private int x;

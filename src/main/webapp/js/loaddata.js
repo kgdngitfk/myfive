@@ -19,6 +19,7 @@ function connect() {
 		console.log(webName);
 		/*拼成websocket的请求地址，因为webpath名称可能会发生变化，所以要动态获取*/
 		/* 写死的形式：ws = new WebSocket("ws://localhost:8080/WebSocket/five"); */
+		console.log('ws://' + host + '/'+webName+'/five');
 		ws = new WebSocket('ws://' + host + '/'+webName+'/five');
 	}
 	ws.onopen = function(evn) {

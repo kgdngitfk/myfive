@@ -1,6 +1,8 @@
 package com.qian.service;
 
-import org.apache.log4j.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 
@@ -8,7 +10,7 @@ import org.apache.log4j.Logger;
  * @date 2016年12月22日
  */
 public class CheckLineFive {
-	private static Logger logger = Logger.getLogger(CheckLineFive.class);
+	final Logger logger  =  LoggerFactory.getLogger(CheckLineFive.class );
 	// 棋盘落子信息
 	private int[][] chessboard;
 

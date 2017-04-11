@@ -25,10 +25,12 @@ public class FiveChessServer {
 
 	// private Queue clientQueue = new LinkedList<>();
 	public FiveChessServer() {
+		System.out.println("init");
 	}
 
 	@OnOpen
 	public void onopen(Session session) {
+		System.out.println(Thread.currentThread().hashCode());
 		/**
 		 * 简易用户匹配，前一个用户决定后其对手的id
 		 */

@@ -1,10 +1,13 @@
 package com.qian.entity;
+
+import java.io.Serializable;
+
 /**
- * 
+ * 客户端和服务器通信消息的定义
  * @author wuhuaiqian
  * @date 2017年1月12日
  */
-public class Message {
+public class Message implements Serializable {
 	private String type;
 	private int x;
 	private int y;

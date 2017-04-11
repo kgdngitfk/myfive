@@ -1,7 +1,7 @@
 /**
  * 
  */
-var ws = connect();
+	var ws = connect(callback);
 	var chessboard = new Array ();
 	var who =true;// 谁的轮次
 	var win =false;// 是否胜利
@@ -19,6 +19,10 @@ var ws = connect();
 	cellSize = width / 20;// 棋盘格子大小
 	boundary = width /20;
 	chessSize = cellSize/2;
+	function callback(data) {
+		alert(data);
+		console.log(data);
+    }
 	function init() {
 		// 初始化棋盘位置
 		for(var i=0;i<20;i++){
@@ -37,7 +41,7 @@ var ws = connect();
 		ctx.lineWidth =8;
 		console.log("current line width is "+ctx.lineWidth);
 		ctx.fill();
-		// 以风格线的左上为坐标原点
+		// 以网格线的左上为坐标原点
 		ctx.translate(boundary,boundary);
 		// ctx.arc(0,0,chessSize,0,2*Math.PI);
 		// ctx.fill();

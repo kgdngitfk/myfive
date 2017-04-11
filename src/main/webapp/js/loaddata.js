@@ -1,7 +1,7 @@
 /**
  * 用于与服务器通讯的websocket
  */
-function connect() {
+function connect(callback) {
 	var ws;
 	var lastMsg;
 	window.WebSocket = window.WebSocket || window.MozWebSocket;
@@ -27,6 +27,7 @@ function connect() {
 		lasgMsg = evn.data;
 	};
 	ws.onmessage = function(evn) {
+		callback(evn.data);
 		console.log(evn.data);
 		lastMsg = evn.data;
 		console.log(lastMsg);

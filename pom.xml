@@ -89,7 +89,7 @@
 					<scanIntervalSeconds>10</scanIntervalSeconds>
 					<webApp>
 						<!-- web项目根路径 -->
-						<contextPath>/</contextPath>
+						<contextPath>/myfive</contextPath>
 					</webApp>
 				</configuration>
 			</plugin>

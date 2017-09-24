@@ -28,11 +28,17 @@
 			<artifactId>javaee-api</artifactId>
 			<version>7.0</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket -->
+		<dependency>
+			<groupId>org.java-websocket</groupId>
+			<artifactId>Java-WebSocket</artifactId>
+			<version>1.3.0</version>
+		</dependency>
 		<!-- Json -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
-			<version>1.2.6</version>
+			<version>1.2.24</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
 		<dependency>
@@ -46,66 +52,41 @@
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
 		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.1.7</version>
+		</dependency>
 
 	</dependencies>
 	<build>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.0.2</version>
+				<version>2.5.1</version>
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
 				</configuration>
 			</plugin>
-			<!--避免maven测试时乱码 -->
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.7.2</version>
-				<configuration>
-					<forkMode>once</forkMode>
-					<argLine>-Dfile.encoding=UTF-8</argLine>
-					<systemProperties>
-						<property>
-							<name>net.sourceforge.cobertura.datafile</name>
-							<value>target/cobertura/cobertura.ser</value>
-						</property>
-					</systemProperties>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.mortbay.jetty</groupId>
+				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
-				<version>8.1.5.v20120716</version>
+				<version>9.4.5.v20170502</version>
 				<configuration>
-					<connectors>
-						<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
-							<port>8080</port> <!-- 访问端口,默认8080 -->
-						</connector>
-					</connectors>
-					<stopPort>9966</stopPort>
-					<stopKey>foo</stopKey>
-					<scanIntervalSeconds>10</scanIntervalSeconds>
-					<webApp>
-						<!-- web项目根路径 -->
-						<contextPath>/myfive</contextPath>
-					</webApp>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>2.2</version>
-				<configuration>
-					<path>/myfive</path>
-					<port>8080</port>
-					<uriEncoding>UTF-8</uriEncoding>
-					<url>http://localhost:8080/manager/html</url>
-					<server>tomcat6</server>
+					<scanIntervalSeconds>3</scanIntervalSeconds>
+					<webAppConfig>
+						<contextPath>/${project.artifactId}</contextPath>
+						<!--修改静态文件实时生效-->
+						<defaultsDescriptor>src/main/resources/webdefault.xml</defaultsDescriptor>
+					</webAppConfig>
+					<httpConnector>
+						<port>8090</port>
+					</httpConnector>
 				</configuration>
 			</plugin>
 		</plugins>
+
 		<finalName>myfive</finalName>
 	</build>
 </project>

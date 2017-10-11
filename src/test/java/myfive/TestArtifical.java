@@ -1,4 +1,4 @@
-package testArtificial;
+package myfive;
 
 import com.qian.service.Artificial;
 import org.junit.Test;
